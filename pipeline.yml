@@ -15,6 +15,7 @@ jobs:
   - put: spring-initializd-image-rc
     params:
       build: spring-initializd
+      tag_prefix: {{docker-tag-prefix}}
       tag: version/version
       tag_as_latest: false
   - put: tracker
@@ -53,6 +54,7 @@ jobs:
   - put: spring-initializd-image-final
     params:
       load: spring-initializd-image-rc
+      tag_prefix: {{docker-tag-prefix}}
       tag: version/version
       tag_as_latest: true
 
