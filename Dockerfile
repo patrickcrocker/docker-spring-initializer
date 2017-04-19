@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk-alpine
 
-ADD assets/ /opt/mvn-spring-boot-cache
+ADD assets/ /opt/spring-initializer
 
-RUN /opt/mvn-spring-boot-cache/seed.sh
+RUN /opt/spring-initializer/seed.sh
