@@ -6,21 +6,21 @@ jobs:
   plan:
   - aggregate:
     - get: pipeline-tasks
-    - get: spring-initializer
+    - get: spring-initializd
       trigger: true
     - get: version
       params: {pre: rc}
   - put: version
     params: {file: version/version}
-  - put: spring-initializer-image-rc
+  - put: spring-initializd-image-rc
     params:
-      build: spring-initializer
+      build: spring-initializd
       tag: version/version
       tag_as_latest: false
   - put: tracker
     params:
       repos:
-        - spring-initializer
+        - spring-initializd
 
 - name: shipit
   public: true
@@ -29,9 +29,9 @@ jobs:
   - aggregate:
     - get: pipeline-tasks
     - get: project
-      resource: spring-initializer
+      resource: spring-initializd
       passed: [build]
-    - get: spring-initializer-image-rc
+    - get: spring-initializd-image-rc
       passed: [build]
       params: {save: true}
     - get: version
@@ -50,9 +50,9 @@ jobs:
       commitish: generate-commitish-output/commitish
   - put: version
     params: {file: version/version}
-  - put: spring-initializer-image-final
+  - put: spring-initializd-image-final
     params:
-      load: spring-initializer-image-rc
+      load: spring-initializd-image-rc
       tag: version/version
       tag_as_latest: true
 
@@ -92,7 +92,7 @@ resources:
     uri: {{pipeline-tasks-git-uri}}
     branch: {{pipeline-tasks-git-branch}}
 
-- name: spring-initializer
+- name: spring-initializd
   type: git
   source:
     uri: {{git-uri}}
@@ -108,7 +108,7 @@ resources:
   type: github-release
   source:
     access_token: {{github-release-access-token}}
-    repository: spring-initializer
+    repository: spring-initializd
     user: patrickcrocker
 
 - name: version
@@ -121,14 +121,14 @@ resources:
     file: version
     private_key: {{git-private-key}}
 
-- name: spring-initializer-image-rc
+- name: spring-initializd-image-rc
   type: docker-image
   source:
     repository: {{docker-repository-rc}}
     username: {{docker-username}}
     password: {{docker-password}}
 
-- name: spring-initializer-image-final
+- name: spring-initializd-image-final
   type: docker-image
   source:
     repository: {{docker-repository-final}}

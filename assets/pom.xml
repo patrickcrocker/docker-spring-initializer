@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.start.spring</groupId>
-	<artifactId>spring-initializer</artifactId>
+	<artifactId>spring-initializd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Spring Initializer</name>
-	<description>Downloads all Spring Boot dependencies based on starg.spring.io</description>
+	<name>Spring Initializd</name>
+	<description>Declares all Spring Boot Starters and dependencies (see: Spring Initializr - http://start.spring.io/)</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

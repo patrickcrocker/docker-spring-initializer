@@ -1,5 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
-ADD assets/ /opt/spring-initializer
+ADD assets/ /opt/spring-initializd
 
-RUN /opt/spring-initializer/seed.sh
+RUN /opt/spring-initializd/seed.sh
+
+initializd
