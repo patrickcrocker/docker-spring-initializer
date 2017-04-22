@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM jeanblanchard/java:jdk-8
 
 ADD assets/ /opt/spring-initializd
 
